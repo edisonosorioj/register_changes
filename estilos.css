@@ -1,0 +1,243 @@
+
+
+/*BODY*/
+
+body{
+	background: #c3c3c3;
+	text-align: center;
+}
+
+/*HEADER*/
+
+header{
+	background: url('img/header.JPG');
+	background-position: center;
+	height: 97px;
+	text-align: center;
+}
+
+h1{
+	color: white;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 30px;
+	text-align: center;
+}
+
+section{
+	text-align: center;
+	position: relative;
+}
+
+/*NAV*/
+
+
+nav{
+	height: 30px;
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+}
+
+nav ul
+{
+	height: 30px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+nav ul #new_register{
+	position: absolute;
+	top: -0.1em;
+	right: 0;
+}
+
+nav ul li
+{
+	display: inline-block;
+	height: 30px;
+	margin: 0 1em 0 0;
+}
+a:hover{
+	background: white;
+	border-radius: 15px;
+}
+
+a
+{
+	border-radius: 15px;
+	color: black;
+	display: block; 
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+	-webkit-transition: 0.3s;
+}
+
+/*FORM*/
+
+
+
+.formulario{
+	background: orange;
+	display: none;
+	border-radius: 10px;
+	margin-top: .2em;
+	padding: .5em 1em;
+	position: absolute;
+	right: 14em;
+	text-align: center;
+	z-index: 2;
+
+    }
+
+.formulario input{
+	display: block;
+	margin: .5em 0;
+	border: none;
+}
+
+.formulario input, textarea{
+	border: none;
+	border-radius: 5px;
+	padding: 0.2em 0.6em;
+}
+
+#school, #schoolupd{
+	width: 7em;
+
+}
+
+.textArea{
+	/*background: white;*/
+	/*border: none;*/
+	margin-right: 1em;
+	height: 50px;
+}
+
+.formulario input[type="submit"]{
+	background: white;
+	border: blue;
+	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+	font-style: italic;
+	text-decoration: none;
+	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+	color: black;
+	border-radius: 15px;
+	-webkit-transition: 0.3s;
+}
+
+.btn{
+	margin: 0;
+}
+
+/*TABLE*/
+
+div{
+	margin: 3em auto;
+	text-align: center;
+	z-index: 2;
+}
+
+
+
+#table_register{
+	height: 450px;
+	text-align: center;
+	width: 900px;
+	z-index: 2;
+
+
+}
+
+.table_th{
+	background: white;
+
+}
+
+/*UPDATE*/
+
+#update1{
+	background: #025e92;
+	border-radius: 2em;
+	padding: 1em 0;
+	width: 250px;
+	color: orange;
+	font-size: 18px;
+}
+
+#tableupt{
+	text-align: center;
+	margin: 1em auto;
+	width: 200px;
+	color: white;
+}
+
+#tableupt input{
+	margin-bottom: 0.5em;
+	color: black;
+}
+
+#txtarea{
+	height: 3em;
+}
+/*FORM2*/
+
+/*#form2{
+	background: orange;
+	border-radius: 10px;
+	bottom: 6em;
+	display: none;
+	margin-top: .5em;
+	padding: .5em 1em;
+	position: absolute;
+	right: 25em;
+	text-align: center;
+}
+
+#form2 input{
+	display: block;
+	margin: .5em 0;
+}
+
+#school2{
+	width: 7em;
+}
+*/
+/*
+.form2 input, textarea{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 0.2em 0.6em;
+}
+
+#school2{
+	margin-bottom: 1em;
+	margin-top: 2em;
+	width: 7em;
+
+}
+
+.textArea{
+	background: white;
+	border: none;
+	height: 50px;
+}
+
+.form2 input[type="submit"]{
+	background: white;
+	border: blue;
+	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+	font-style: italic;
+	text-decoration: none;
+	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+	color: black;
+	border-radius: 15px;
+	-webkit-transition: 0.3s;
+}
+
+.btn2{
+	margin: 0;
+}*/
