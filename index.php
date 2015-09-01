@@ -87,7 +87,7 @@ require 'conexion.php';
 			</div>
 		</section>
 		<footer>
-			<h2>Registro Unico de Modificaciones en XML Ciudad Educativa</h2>
+			<h2>Registro de Modificaciones en Informes.XML Ciudad Educativa</h2>
 		</footer>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="formulario.js"></script>			
