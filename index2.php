@@ -1,19 +1,19 @@
 <?php
 include 'conexion.php';
-// require 'comun.php';
-$limite = 12;
+
+$registros = 10;
+$contador = 1;
 $pagina = '';
 
-if (isset($_GET["pagina"])) {
-	$pagina = (int)$_GET["pagina"];
-}
-
-if ($pagina == 0 || $pagina=="" ) { 
+if (!$pagina) { 
     $inicio = 0; 
     $pagina = 1; 
 } else { 
-    $inicio = ($pagina - 1) * $limite; 
+    $inicio = ($pagina - 1) * $registros; 
 } 
+
+
+// $query = mysqli_query($link, "SELECT * FROM register_changes_reports"); 
 
 ?>
 <html>
@@ -22,8 +22,6 @@ if ($pagina == 0 || $pagina=="" ) {
 		<meta charset="UTF-8"/>
 		<link rel="stylesheet" href="normalize.css" />
 		<link rel="stylesheet" href="estilos.css" />
-
-	</head>
 	<body>
 		<header>
 			<h1>Register of Changes</h1>
@@ -69,77 +67,84 @@ if ($pagina == 0 || $pagina=="" ) {
 						<th width="50%" class="table_th"><b>Observation</b></th>
 						<th colspan="2" class="table_th"><b>Acciones</b></th>
 					</tr>
+				</thead>
 					<tbody>
 						<?php
-						$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports");
+							$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports");
+							$total_registros = mysqli_num_rows($resultados);
 
-						$total_registros = mysqli_num_rows($resultados);
+							$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports LIMIT $inicio $registros");
+							$total_paginas = ceil($total_registros / $registros);
 
-						$resultados = mysqli_query(
-							$conn, "SELECT * FROM register_changes_reports limit $limite");
-						$total_paginas = ceil($total_registros / $limite);
-
-
-						while($row = mysqli_fetch_array($resultados, MYSQLI_ASSOC)) {
-						?>
-					<tr>
-						<td>
-							<?php echo $row['school_id'];?>
-						</td>
-						<td>
-							<?php echo $row['report_name'];?>
-						</td>
-						<td align="center">
-							<?php echo $row['modification_date'];?>
-						</td>
-						<td>
-							<?php echo $row['observation'];?>
-						</td>
-						<td>
-							<a href="update.php?id=<?php echo $row['id'];?>" class="btn">Update</a>
-						</td>
-						<td>
-							<a href="remove.php?id=<?php echo $row['id'];?>" class="btn">Remove</a>
-						</td>
-					</tr>
-						<?php } 
-						mysqli_free_result($resultados);
-						?>
-					</tbody>
-				</thead>
-			</table>
-				<div class="paginacion">
-					<?php
-						if ($total_registros) {
-
-							if (($pagina - 1) > 0) {
-								echo "<a href='?pagina=" . ($pagina-1) . "'>< Anterior </a>";	
+							if ($total_registros) {
+								if($resultados === FALSE) { 
+								    die(mysqli_connect_error());
+								}		
+	
+								while($reportes = mysqli_fetch_array($resultados, MYSQLI_BOTH)) {
+								?>
+								<tr>
+									<td>
+										<?php echo $reportes['school_id'];?>
+									</td>
+									<td>
+										<?php echo $reportes['report_name'];?>
+									</td>
+									<td align="center">
+										<?php echo $reportes['modification_date'];?>
+									</td>
+									<td>
+										<?php echo $reportes['observation'];?>
+									</td>
+									<td>
+										<a href="update.php?id=<?php echo $reportes['id'];?>" class="btn">Update</a>
+									</td>
+									<td>
+										<a href="remove.php?id=<?php echo $reportes['id'];?>" class="btn">Remove</a>
+									</td>
+								</tr>
+							<?php } 
 							} else {
-								echo "<a href='#'>< Anterior </a>";
+								echo "<font color='darkgray'>(sin resultados)</font>";
+							}
+
+							mysqli_free_result($resultados);
+							?>
+					</tbody>
+			</table>
+			</div>
+			<div class="pagination">
+				<?php
+					if ($total_registros) {
+						if (($pagina - 1) > 0) {
+							echo "<a href='index2.php?pagina=" . ($pagina-1) . "'>< Anterior</a>";	
+						} else {
+							echo "<a href='#'>< Anterior</a>";
 						}
 
 						for ($i = 1; $i <= $total_paginas; $i++) {
-								if ($pagina == $i) {
-									echo "<a href='#'>". $pagina ."</a>"; 
-								} else {
-									echo "<a href='?pagina=$i'> $i </a> "; 
-								}	
-							}
-
-						if (($pagina + 1) <= $total_paginas) {
-								echo "<a href='?pagina=".($pagina+1)."'> Siguiente ></a>";
+							if ($pagina == $i) {
+								echo "<a href='#'>". $pagina ."</a>"; 
 							} else {
-								echo "<a href='#'> Siguiente ></a>";
+								echo "<a href='paginacion.php?pagina=$i'>$i</a> "; 
+							}	
+						}
+			 
+				  		
+						if (($pagina + 1)<=$total_paginas) {
+							echo "<a href='paginacion.php?pagina=".($pagina+1)."'>Siguiente ></a>";
+						} else {
+							echo "<a href='#'>Siguiente ></a>";
 						}	
 					}
 				?>
-				</div>
 			</div>
+			<?php
+				mysqli_close($conn);
+			?>
 		</section>
 		<footer>
 			<h2>Registro Unico de Modificaciones en XML Ciudad Educativa</h2>
-		</footer>
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="formulario.js"></script>			
+		</footer>			
 	</body>
 </html>

@@ -62,12 +62,12 @@ nav ul li
 	height: 30px;
 	margin: 0 1em 0 0;
 }
-a:hover{
+.btn:hover{
 	background: white;
 	border-radius: 15px;
 }
 
-a
+.btn
 {
 	border-radius: 15px;
 	color: black;
@@ -136,7 +136,7 @@ a
 
 div{
 	left: 0;
-	margin: 3em auto;
+	margin: 3em auto 1em auto;
 	position: relative;
 	right: 0;
 	width: 80%;
@@ -145,7 +145,7 @@ div{
 
 
 
-table #table_register{
+div table #table_register{
 	position: absolute;
 
 }
@@ -180,6 +180,12 @@ table #table_register{
 
 #txtarea{
 	height: 3em;
+}
+
+.paginacion{
+	font-style: none;
+	margin-bottom: 2em;
+	margin-top: 0;
 }
 
 /*FOTTER*/
