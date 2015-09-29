@@ -75,8 +75,7 @@ if ($pagina == 0 || $pagina=="" ) {
 
 						$total_registros = mysqli_num_rows($resultados);
 
-						$resultados = mysqli_query(
-							$conn, "SELECT * FROM register_changes_reports limit $limite");
+						$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports limit $limite");
 						$total_paginas = ceil($total_registros / $limite);
 
 
@@ -87,13 +86,13 @@ if ($pagina == 0 || $pagina=="" ) {
 							<?php echo $row['school_id'];?>
 						</td>
 						<td>
-							<?php echo $row['report_name'];?>
+							<?php echo mb_convert_encoding($row['report_name'],"UTF-8");?>
 						</td>
 						<td align="center">
 							<?php echo $row['modification_date'];?>
 						</td>
 						<td>
-							<?php echo $row['observation'];?>
+							<?php echo mb_convert_encoding($row['observation'],"UTF-8");?>
 						</td>
 						<td>
 							<a href="update.php?id=<?php echo $row['id'];?>" class="btn">Update</a>
@@ -140,6 +139,5 @@ if ($pagina == 0 || $pagina=="" ) {
 			<h2>Registro Unico de Modificaciones en XML Ciudad Educativa</h2>
 		</footer>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="formulario.js"></script>			
 	</body>
 </html>

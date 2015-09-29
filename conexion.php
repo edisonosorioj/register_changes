@@ -11,5 +11,5 @@ if (mysqli_connect_errno()) {
 	exit('Fallo Conexion: ' . mysqli_connect_error());
 }
  
-
+return $conn;
 ?>
