@@ -71,11 +71,11 @@ if ($pagina == 0 || $pagina=="" ) {
 					</tr>
 					<tbody>
 						<?php
-						$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports");
+						$resultados = mysqli_query($conn, "SELECT * FROM register_changes");
 
 						$total_registros = mysqli_num_rows($resultados);
 
-						$resultados = mysqli_query($conn, "SELECT * FROM register_changes_reports limit $limite");
+						$resultados = mysqli_query($conn, "SELECT * FROM register_changes limit $limite");
 						$total_paginas = ceil($total_registros / $limite);
 
 
