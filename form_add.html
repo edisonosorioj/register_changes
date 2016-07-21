@@ -1,0 +1,23 @@
+<form name="new_user" id="formulario" class="formulario" method="post" action="save_user.php" autocomplete="on">
+	<p><h3>New Register</h3></p>
+	<input id="school" class="formInput" type="number" name="school" min="101" placeholder="School" required/>
+	<input class="formInput" list="report" name="report" placeholder="Report"/>
+	<input class="formInput" type="date" name="dates" min="2010-01-01" />
+	<datalist id="report">
+	  <option value="Boletin de Periodo">
+	  <option value="Boletin de periodo con Definitiva">
+	  <option value="Boletin de periodo antes de Promoción">
+	  <option value="Boletin de periodo despues de Promoción">
+	  <option value="Carnet Administrativos">
+	  <option value="Carnet Estudiantes">
+	  <option value="Certificado de Curso y Aprobo">
+	  <option value="Certificado Traslado">
+	  <option value="Constancia de Estudio">
+	  <option value="Hoja de Matricula">
+	  <option value="Libro de Calificaciones">
+	  <option value="Paz y Salvo">
+	  <option value="Planilla por Docente">
+	 </datalist>
+	<textarea placeholder="Motivo" class="textArea" name="observation"></textarea>
+	<input type="submit" name="join" value="Join" class="btn">
+</form>

@@ -22,7 +22,7 @@ if ($pagina == 0 || $pagina=="" ) {
 		<meta charset="UTF-8"/>
 		<link rel="stylesheet" href="normalize.css" />
 		<link rel="stylesheet" href="estilos.css" />
-
+		<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -30,35 +30,13 @@ if ($pagina == 0 || $pagina=="" ) {
 			<nav>
 				<ul>
 					<li id='new_register'>
-						<a href="#" id="mostrar-form" class="btn">New Register</a>
+						<bottom id="mostrar-form" class="btn">New Register</bottom>
 					</li>
 				</ul>
 			</nav>
-			<form name="new_user" id="formulario" class="formulario" method="post" action="save_user.php" autocomplete="on">
-				<p><h3>New Register</h3></p>
-				<input id="school" class="formInput" type="number" name="school" min="101" placeholder="School" required/>
-				<input class="formInput" list="report" name="report" placeholder="Report"/>
-				<input class="formInput" type="date" name="dates" min="2010-01-01" />
-				<datalist id="report">
-				  <option value="Boletin de Periodo">
-				  <option value="Boletin de periodo con Definitiva">
-				  <option value="Boletin de periodo antes de Promoción">
-				  <option value="Boletin de periodo despues de Promoción">
-				  <option value="Carnet Administrativos">
-				  <option value="Carnet Estudiantes">
-				  <option value="Certificado de Curso y Aprobo">
-				  <option value="Certificado Traslado">
-				  <option value="Constancia de Estudio">
-				  <option value="Hoja de Matricula">
-				  <option value="Libro de Calificaciones">
-				  <option value="Paz y Salvo">
-				  <option value="Planilla por Docente">
-				 </datalist>
-				<textarea placeholder="Motivo" class="textArea" name="observation"></textarea>
-				<input type="submit" name="join" value="Join" class="btn">
-			</form>
 		</header>
 		<section>
+			<div id='form'></div>
 			<div id='table_register'>
 			<table border="1" width="100%" >
 				<thead>
@@ -138,6 +116,6 @@ if ($pagina == 0 || $pagina=="" ) {
 		<footer>
 			<h2>Registro Unico de Modificaciones en XML Ciudad Educativa</h2>
 		</footer>
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src='formulario.js'></script>
 	</body>
 </html>
